@@ -5,7 +5,11 @@
 <p>Topics</p>
 <ul>
     {% for topic in topics %}
-    <li>{{ topic.text }}</li>
+    <li>
+        <a href="{% url 'mnemosyne:topic' topic.id %}">
+            {{ topic.text }}</a>
+    </li>
+    </li>
     {% empty %}
     <li>No topics have been added yet.</li>
     {% endfor %}
