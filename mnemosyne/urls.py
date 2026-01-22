@@ -1,9 +1,9 @@
 """Defines url patterns for mnemosyne"""
 
-from django.urls import path
-from . import views
+from django.urls import path #Django's URL tool
+from . import views #apps view
 
-app_name = 'mnemosyne'
+app_name = 'mnemosyne' #name spacing
 urlpatterns = [
     #Home page
     path('', views.index, name='index')
