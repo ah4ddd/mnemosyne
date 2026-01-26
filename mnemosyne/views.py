@@ -42,7 +42,9 @@ def new_topic(request):
     else:# POST data submitted; create a blank form
         form =TopicForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            new_topic = form.save(commit=False)  # STOP auto-save
+            new_topic.owner = request.user       # SET OWNER
+            new_topic.save()                      # NOW save
             return redirect('mnemosyne:topics')
     #display a blank or invalid form
     context = {'form': form}
