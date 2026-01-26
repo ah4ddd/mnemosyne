@@ -17,7 +17,7 @@ def index(request):
 # restrics data to logged in users
 @login_required
 def topics(request):
-    topics = Topic.objects.order_by('date_added')
+    topics = Topic.objects.filter(owner=request.user).order_by('date_added')
     context = {'topics': topics}
     return render(request, 'mnemosyne/topics.html', context)
 
