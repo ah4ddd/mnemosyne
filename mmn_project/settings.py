@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 # My settings
 LOGIN_REDIRECT_URL = 'mnemosyne:index'
+LOGOUT_REDIRECT_URL = 'mnemosyne:index'
 
 # Application definition
 
