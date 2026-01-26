@@ -5,6 +5,7 @@
 #the schema
 
 from django.db import models
+from django.contrib.auth.models import User
 
 #lives in database
 class Topic(models.Model):# this class becomes the table
@@ -12,6 +13,8 @@ class Topic(models.Model):# this class becomes the table
     text = models.CharField(max_length=100)
     #timestaps the created topic
     date_added = models.DateTimeField(auto_now_add=True)
+    #if user is deleted, associated topics gets deleted aswell
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):# just prints the object
         return self.text

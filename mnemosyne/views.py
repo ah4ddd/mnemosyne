@@ -14,6 +14,7 @@ def index(request):
     #Inside the templates/ folder, look inside the mnemosyne namespace
     return render(request, 'mnemosyne/index.html')
 
+# restrics data to logged in users
 @login_required
 def topics(request):
     topics = Topic.objects.order_by('date_added')
