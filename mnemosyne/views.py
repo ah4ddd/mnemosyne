@@ -9,6 +9,8 @@ from django.shortcuts import redirect, render
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
 from django.contrib.auth.decorators import login_required
+from django.http import Http404
+
 
 def index(request):
     #Inside the templates/ folder, look inside the mnemosyne namespace
@@ -24,6 +26,9 @@ def topics(request):
 @login_required
 def topic(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
+    #make sure topic belongs to current user
+    if topic.owner != request.user:
+        raise Http404
     entries = topic.entry_set.order_by('-date_added') # type: ignore
     context = {'topic': topic, 'entries': entries}
     return render(request, 'mnemosyne/topic.html', context)
