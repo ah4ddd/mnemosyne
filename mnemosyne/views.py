@@ -8,11 +8,13 @@ Sends it back to the browser
 from django.shortcuts import redirect, render
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     #Inside the templates/ folder, look inside the mnemosyne namespace
     return render(request, 'mnemosyne/index.html')
 
+@login_required
 def topics(request):
     topics = Topic.objects.order_by('date_added')
     context = {'topics': topics}
