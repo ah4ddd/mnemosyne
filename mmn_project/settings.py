@@ -31,8 +31,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'mnemosyne', # my app
-    'django.contrib.admin', # def apps
+    # my app
+    'mnemosyne',
+    'accounts',
+    # default django apps
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
