@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'unsafe-dev-key')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'mnemosyne.onrender.com',
+    '.onrender.com',
     '127.0.0.1',
     'localhost',
 ]
