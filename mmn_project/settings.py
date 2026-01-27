@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     # my app
     'mnemosyne',
     'accounts',
+    #third party apps
+    'django_bootstrap5',
     # default django apps
     'django.contrib.admin',
     'django.contrib.auth',
