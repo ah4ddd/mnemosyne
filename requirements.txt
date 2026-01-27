@@ -1,6 +1,8 @@
 asgiref==3.11.0
+dj-database-url==3.1.0
 Django==4.2
 django-bootstrap5==26.1
 sqlparse==0.5.5
+whitenoise==6.11.0
 gunicorn
 psycopg2
