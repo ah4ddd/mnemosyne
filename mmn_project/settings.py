@@ -35,11 +35,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'unsafe-dev-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '.onrender.com',
-    '127.0.0.1',
-    'localhost',
-]
+ALLOWED_HOSTS = ['*']
 
 # My settings
 LOGIN_REDIRECT_URL = 'mnemosyne:index'
@@ -149,7 +145,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
